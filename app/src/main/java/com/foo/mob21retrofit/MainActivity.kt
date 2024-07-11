@@ -14,6 +14,7 @@ import javax.inject.Inject
 //Koin
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
     @Inject
     lateinit var greetings: String
 
