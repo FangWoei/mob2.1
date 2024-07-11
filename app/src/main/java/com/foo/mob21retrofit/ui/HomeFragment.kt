@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import com.foo.mob21retrofit.MyApp
 import com.foo.mob21retrofit.core.Utils.debugLog
-import com.foo.mob21retrofit.data.TodoRepo
 import com.foo.mob21retrofit.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -18,8 +17,6 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
-    @Inject
-    lateinit var repo: TodoRepo
 
 
     override fun onCreateView(
@@ -34,10 +31,6 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        lifecycleScope.launch {
-            val res = repo.getAllTodos()
-            log(res)
-        }
     }
 
 }
